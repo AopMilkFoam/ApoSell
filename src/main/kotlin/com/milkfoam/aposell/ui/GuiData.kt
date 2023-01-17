@@ -169,10 +169,13 @@ class GuiData(
         val openEvent = guiFile.getString("OpenEvent")?.replacePlaceholder(opener) ?: ""
         when (openType) {
             "op" -> {
-                //更改原屎山op代码
                 val isOp = opener.isOp
                 opener.isOp = true
-                Bukkit.dispatchCommand(opener, openEvent)
+                try {
+                    Bukkit.dispatchCommand(opener, openEvent)
+                } catch (ex: Throwable) {
+                    ex.printStackTrace()
+                }
                 opener.isOp = isOp
             }
 
