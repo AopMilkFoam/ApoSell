@@ -1,0 +1,37 @@
+#出售界面的标题，支持颜色代码
+Title: "出售商店"
+#出售界面布局 类似TrMenu的功能
+#  + 为出售位置，请勿全部删除
+#  + 为出售位置，请勿全部删除
+#  - 为点击出售按钮位置，请勿占用
+#  - 为点击出售按钮位置，请勿占用
+OpenType: "op"  #支持 kether 和 op(玩家op执行) console(后台执行)  ""为不启用
+OpenEvent: "say hello-world"
+#出售商品后Json脚本消息 鼠标放上去之后可以查看出售的物品  ""为不启用
+SellJson: "悬浮可查看出售的物品"
+Layout:
+  - "####a####"
+  - "#+++++++#"
+  - "#+++++++#"
+  - "#+++++++#"
+  - "#+++++++#"
+  - "####-####"
+#name 以及 lore 支持颜色代码和PAPI变量
+Items:
+  "-":
+    material: "BOOK"
+    name: "&c点击出售"
+  "#":
+    material: "BLACK_STAINED_GLASS_PANE"
+    name: "&c我是装饰板"
+    lore:
+      - "我是第一条lore"
+      - "我是第二条lore"
+  "a":
+    material: "PLAYER_HEAD"
+    name: "&c%player_name%"
+    lore:
+      - "&e金币: &710000"
+      - "&e点卷: &710000"
+
+

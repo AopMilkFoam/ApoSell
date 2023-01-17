@@ -1,0 +1,16 @@
+#插件前缀，支持颜色代码
+Prefix: "&7&l[&bApo&eSell&7&l] "
+#是否在玩家关闭出售界面是自动出售符合描述的物品
+OnCloseSell: true
+#如果物品的某一行描述内包含这个key即可出售
+#可填可不填颜色代码
+VaultSellKey: "金币:"
+PointSellKey: "点卷:"
+
+
+
+
+
+
+
+
