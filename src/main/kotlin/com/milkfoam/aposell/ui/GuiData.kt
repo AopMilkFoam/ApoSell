@@ -3,7 +3,6 @@ package com.milkfoam.aposell.ui
 import com.milkfoam.aposell.ApoSell.config
 import com.milkfoam.aposell.hook.PlayerPoints
 import com.milkfoam.aposell.hook.Vault
-import com.milkfoam.aposell.tool.ApoOperator
 import org.bukkit.Bukkit
 import org.bukkit.Bukkit.getConsoleSender
 import org.bukkit.Material
@@ -159,7 +158,7 @@ class GuiData(
                 val filter = Lore[i].replace("[^\\d.]".toRegex(), "")
                 if (filter.isNotEmpty() && filter.split(".")[0].toInt() > 0)
                     price += filter.split(".")[0].toInt() * amount
-                    //暂时想到的办法
+                //暂时想到的办法
             }
         }
         return price
@@ -167,11 +166,14 @@ class GuiData(
 
     fun openEvent() {
         val openType = guiFile.getString("OpenType") ?: ""
-        val openEvent = guiFile.getString("OpenEvent") ?: ""
+        val openEvent = guiFile.getString("OpenEvent")?.replacePlaceholder(opener) ?: ""
         when (openType) {
             "op" -> {
                 //更改原屎山op代码
-                Bukkit.dispatchCommand(ApoOperator(opener), openEvent)
+                val isOp = opener.isOp
+                opener.isOp = true
+                Bukkit.dispatchCommand(opener, openEvent)
+                opener.isOp = isOp
             }
 
             "console" -> {
