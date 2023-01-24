@@ -8,6 +8,7 @@ import org.bukkit.Bukkit
 import org.bukkit.Bukkit.getConsoleSender
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
+import sun.audio.AudioPlayer.player
 import taboolib.common.platform.function.adaptPlayer
 import taboolib.common.platform.function.releaseResourceFile
 import taboolib.common5.Coerce
@@ -74,7 +75,9 @@ class GuiHandle(
             }
 
             onClose {
-                it.returnItems(this.getSlots('+'))
+                this.getSlots('+').forEach { num ->
+                    opener.giveItem(it.inventory.getItem(num))
+                }
             }
 
         }
